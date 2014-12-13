@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import java.util.Scanner;
 
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
@@ -17,8 +18,22 @@ public class RadarViewer
         // create the radar, set the monster location, and perform the initial scan
         final int ROWS = 100;
         final int COLS = 100;
+        
+        Scanner s = new Scanner(System.in);
+        
         Radar radar = new Radar(ROWS, COLS);
-        radar.setNoiseFraction(0.10);
+        
+        System.out.println("\n Set noise fraction (.02 or less for best results): ");
+        double nf = s.nextDouble();
+        
+        radar.setNoiseFraction(nf);
+        
+        System.out.println("Set monster dx: ");
+        int dx = s.nextInt();
+        System.out.println("Set monster dy: ");
+        int dy = s.nextInt();
+        
+        radar.setMonsterLocation(50,50,dx,dy);
         radar.scan();
         
         JFrame frame = new JFrame();
@@ -47,6 +62,10 @@ public class RadarViewer
             
             frame.repaint();
         }
+       System.out.print("\n The velocity vector is: ");
+        for( int val : radar.getVelocity() ){
+        System.out.print(val + " ");
+       }
     }
 
 }

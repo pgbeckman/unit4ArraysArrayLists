@@ -92,6 +92,7 @@ public class RadarComponent extends JComponent
         final int X_OFFSET = cols * CELL_WIDTH;
         
         // draw the image for the accumulated radar scans
+        /*
         for(int row = 0; row < rows; row++)
         {
             for(int col = 0; col < cols; col++)
@@ -109,7 +110,7 @@ public class RadarComponent extends JComponent
                 
                 g2.setColor(new Color(pixelValue, pixelValue, pixelValue));
                 g2.fill(rect);
-            }
+            */
         }
     }
-}
+
